@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+/* Zoxen brand tokens (same as the portal). Dark mode follows the visitor's device. */
+:root {
+  --bg: #eef0f5;
+  --surface: #ffffff;
+  --surface-2: #f4f5f9;
+  --line: #e7e9f0;
+  --fg: #1a1d2e;
+  --muted: #6b7085;
+  --heading: #0b1020;
+  --accent: #2639e8;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1020;
+    --surface: #121a31;
+    --surface-2: #19223f;
+    --line: #222b47;
+    --fg: #e8eaf5;
+    --muted: #8c93b0;
+    --heading: #ffffff;
+    --accent: #8f9bff;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-heading: var(--heading);
+  --color-accent: var(--accent);
+  --color-brand: #2639e8;
+  --color-violet: #6c3bf5;
+  --color-navy: #0b1020;
+  --font-sans: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-display), var(--font-body), ui-sans-serif, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes shimmer {
+  to {
+    background-position: -200% 0;
+  }
+}
+.shimmer {
+  background: linear-gradient(110deg, var(--surface-2) 30%, var(--line) 50%, var(--surface-2) 70%);
+  background-size: 200% 100%;
+  animation: shimmer 1.4s infinite;
+}
