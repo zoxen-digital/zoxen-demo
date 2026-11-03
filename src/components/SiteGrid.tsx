@@ -32,7 +32,7 @@ export function SiteGrid({ sites }: { sites: Site[] }) {
       {shown.length === 0 ? (
         <p className="card py-16 text-center text-muted">{sites.length ? "No websites match your search." : "Websites are loading. Please refresh in a moment."}</p>
       ) : (
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           {shown.map((s) => (
             <a key={s.url} href={s.url} target="_blank" rel="noopener" className="card group block overflow-hidden transition duration-200 hover:-translate-y-1 hover:shadow-xl">
               <div className="flex items-center gap-1.5 border-b border-line bg-surface-2 px-3.5 py-2.5" aria-hidden="true">
@@ -43,7 +43,7 @@ export function SiteGrid({ sites }: { sites: Site[] }) {
               </div>
               <div className="shimmer relative aspect-[16/10] overflow-hidden">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src={screenshot(s.url)} alt={`${s.name} website`} loading="lazy" className="relative h-full w-full object-cover object-top transition duration-[3000ms] group-hover:scale-[1.03]" />
+                <img src={screenshot(s)} alt={`${s.name} website`} loading="lazy" className="relative h-full w-full object-cover object-top transition duration-[3000ms] group-hover:scale-[1.03]" />
               </div>
               <div className="flex items-center gap-3 px-4 py-3.5">
                 <div className="min-w-0 flex-1">

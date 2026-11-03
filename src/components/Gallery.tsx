@@ -103,7 +103,7 @@ function Hero({ data }: { data: Demos }) {
                 <span className="ml-2 truncate text-[10px] text-slate-400">{s.url.replace(/^https?:\/\//, "")}</span>
               </div>
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={screenshot(s.url)} alt="" className="aspect-[16/10] w-full bg-slate-100 object-cover object-top" />
+              <img src={screenshot(s)} alt="" className="aspect-[16/10] w-full bg-slate-100 object-cover object-top" />
             </div>
           ))}
         </div>
