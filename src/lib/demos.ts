@@ -16,5 +16,8 @@ export async function getDemos(): Promise<Demos> {
   }
 }
 
-/** Live homepage screenshot (free service, cached on their side). */
-export const screenshot = (url: string) => `https://image.thum.io/get/width/640/crop/1000/noanimate/${url}`;
+/** Homepage screenshot from the free service (same size as the portal asks for, so both share one render). */
+export const screenshotSource = (url: string) => `https://image.thum.io/get/width/640/crop/1000/noanimate/${url}`;
+
+/** What the page shows: our cached copy (see app/shot/route.ts). */
+export const screenshot = (url: string) => `/shot?u=${encodeURIComponent(url)}`;
