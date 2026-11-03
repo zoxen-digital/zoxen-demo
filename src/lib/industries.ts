@@ -1,0 +1,48 @@
+import {
+  Briefcase,
+  Camera,
+  Car,
+  Dumbbell,
+  Flag,
+  GraduationCap,
+  HandHeart,
+  HeartPulse,
+  Home,
+  Layers,
+  type LucideIcon,
+  PawPrint,
+  Plane,
+  Scale,
+  Scissors,
+  ShoppingBag,
+  Sparkles,
+  Truck,
+  Tv,
+  UtensilsCrossed,
+  Wrench,
+} from "lucide-react";
+
+/** Icon per industry (names come from the portal; anything new falls back to a neutral icon). */
+const ICONS: Record<string, LucideIcon> = {
+  "Restaurant & Food": UtensilsCrossed,
+  "Auto Services": Car,
+  Cleaning: Sparkles,
+  "Home Services & Renovation": Wrench,
+  "Real Estate": Home,
+  "Health & Wellness": HeartPulse,
+  "Beauty & Fashion": Scissors,
+  "Fitness & Sports": Dumbbell,
+  "Logistics & Transport": Truck,
+  "Legal & Finance": Scale,
+  "Events & Photography": Camera,
+  "Retail & E-commerce": ShoppingBag,
+  "Nonprofit & Community": HandHeart,
+  Politics: Flag,
+  "Education & Coaching": GraduationCap,
+  "Media & Entertainment": Tv,
+  "Tech & Consulting": Briefcase,
+  "Travel & Hospitality": Plane,
+  Pets: PawPrint,
+};
+
+export const industryIcon = (name: string): LucideIcon => ICONS[name] || Layers;

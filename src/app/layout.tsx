@@ -14,11 +14,17 @@ export const metadata: Metadata = {
   openGraph: { siteName: "Zoxen Digital", type: "website" },
 };
 
-export const viewport: Viewport = { themeColor: "#2639e8" };
+export const viewport: Viewport = { themeColor: "#0b1020" };
+
+// Applies the saved theme (or the device setting on a first visit) before paint, so there is no flash.
+const themeScript = `try{var t=localStorage.getItem('zx-theme');if(t==='dark'||(!t&&matchMedia('(prefers-color-scheme: dark)').matches))document.documentElement.classList.add('dark')}catch(e){}`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sora.variable} ${hanken.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`${sora.variable} ${hanken.variable}`}>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-screen font-sans">{children}</body>
     </html>
   );
