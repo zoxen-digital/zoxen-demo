@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { Gallery } from "@/components/Gallery";
 import { getDemos } from "@/lib/demos";
 
-export const revalidate = 300;
+export const revalidate = 60;
 // Industries added later in the portal still get a page.
 export const dynamicParams = true;
 

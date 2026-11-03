@@ -5,10 +5,10 @@ export type Industry = { name: string; slug: string; count: number };
 export type Site = { url: string; name: string; industry: string; slug: string; description: string };
 export type Demos = { industries: Industry[]; sites: Site[] };
 
-/** Refreshed from the portal at most every 5 minutes. */
+/** Refreshed every minute, and straight away when the portal calls /api/revalidate. */
 export async function getDemos(): Promise<Demos> {
   try {
-    const res = await fetch(API, { next: { revalidate: 300 } });
+    const res = await fetch(API, { next: { revalidate: 60, tags: ["demos"] } });
     if (!res.ok) throw new Error(String(res.status));
     return (await res.json()) as Demos;
   } catch {
